@@ -63,7 +63,7 @@ fun main() {
     // rintln("result = $thirdNum")
     //val min = travelMinutes(9, 25, 13, 1)
     //println("Minutes: $min")
-    val thirdChar= thirdDigit(3801)
+    val thirdChar = thirdDigit(3801)
     println("$thirdChar")
 }
 
@@ -102,9 +102,9 @@ fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double {
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
 fun angleInRadian(deg: Int, min: Int, sec: Int): Double {
-    val degreeInRadian = deg *(PI/180)
-    val minutesInRadian = min * (PI/(180*60))
-    val secondsInRadian = sec * (PI/(180*3600))
+    val degreeInRadian = deg * (PI / 180)
+    val minutesInRadian = min * (PI / (180 * 60))
+    val secondsInRadian = sec * (PI / (180 * 3600))
     return (degreeInRadian + minutesInRadian + secondsInRadian)
 }
 
@@ -130,8 +130,8 @@ fun thirdDigit(number: Int): Int {
     val StrLen = toStr.length
     val thirdNumber = toStr[StrLen - 3]
     return thirdNumber.toString().toInt()*/
-    val restDivision = number%10
-    return (restDivision)
+    val restDivision = (number/100) % 10
+    return restDivision
 }
 
 /**
