@@ -63,8 +63,13 @@ fun main() {
     // rintln("result = $thirdNum")
     //val min = travelMinutes(9, 25, 13, 1)
     //println("Minutes: $min")
-    val thirdChar = thirdDigit(3801)
-    println("$thirdChar")
+    //val thirdChar = thirdDigit(3801)
+    //println("$thirdChar")
+    //val accountInBank = accountInThreeYears(100,10)
+    //println(accountInBank)
+    val revertNumber =  numberRevert(478)
+    println("Перевернутое число = $revertNumber")
+
 }
 
 /**
@@ -154,12 +159,23 @@ fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minute
  * Сколько денег будет на счету через 3 года (с учётом сложных процентов)?
  * Например, 100 рублей под 10% годовых превратятся в 133.1 рубля
  */
-fun accountInThreeYears(initial: Int, percent: Int): Double = TODO()
-
+fun accountInThreeYears(initial: Int, percent: Int): Double {
+    val percentCalc:Double = percent.toDouble()/100
+    val accountInYear: Double =initial+initial*(percentCalc)
+    val accountInTwoYear=accountInYear+accountInYear*(percentCalc)
+    val accountInThreeYear = accountInTwoYear+accountInTwoYear*(percentCalc)
+    return accountInThreeYear
+}
 /**
  * Простая
  *
  * Пользователь задает целое трехзначное число (например, 478).
  * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
  */
-fun numberRevert(number: Int): Int = TODO()
+fun numberRevert(number: Int): Int {
+    val firstDigit=(number%10)*100
+    val secondDigit= ((number/10)%10)*10
+    val thirdDigit = (number/100)%10
+    val result = firstDigit+secondDigit+thirdDigit
+    return result
+}
