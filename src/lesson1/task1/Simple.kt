@@ -49,10 +49,22 @@ fun quadraticRootProduct(a: Double, b: Double, c: Double): Double {
  * Пример главной функции
  */
 fun main() {
-    //val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
-    //println("Root product: $x1x2")
+    /*val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
+    println("Root product: $x1x2")
     val sec = seconds(24, 0, 0)
     println("Seconds: $sec")
+    val meters = lengthInMeters(8, 2, 11)
+    println("Meters " + "%.2f".format(meters))*/
+    //val radians = angleInRadian(36, 14, 35)
+    //println("Radians " + "%.5f".format(radians))
+    //val dis = trackLength(3.0, 0.0, 0.0, 4.0)
+    //println("TrackLength: $dis")
+    //val thirdNum = thirdDigit (3806)
+    // rintln("result = $thirdNum")
+    //val min = travelMinutes(9, 25, 13, 1)
+    //println("Minutes: $min")
+    val thirdChar= thirdDigit(3801)
+    println("$thirdChar")
 }
 
 /**
@@ -62,9 +74,10 @@ fun main() {
  * Рассчитать время в секундах, прошедшее с начала суток (30035 в данном случае).
  */
 fun seconds(hours: Int, minutes: Int, seconds: Int): Int {
-    val hoursInSecond = hours*60*60
-    val minutesInSecond = minutes*60
-    return (hoursInSecond+minutesInSecond+seconds)
+    val hoursInSecond = hours * 60 * 60
+    val minutesInSecond = minutes * 60
+    return (hoursInSecond + minutesInSecond + seconds)
+
 }
 
 /**
@@ -74,7 +87,13 @@ fun seconds(hours: Int, minutes: Int, seconds: Int): Int {
  * Определить длину того же отрезка в метрах (в данном случае 18.98).
  * 1 сажень = 3 аршина = 48 вершков, 1 вершок = 4.445 см.
  */
-fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
+fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double {
+    val sagenesInMeters = sagenes * 2.133
+    val arshinsInMeters = arshins * 0.711
+    val vershoksInMeters = vershoks * 0.0445
+    return (sagenesInMeters + arshinsInMeters + vershoksInMeters)
+
+}
 
 /**
  * Тривиальная
@@ -82,7 +101,12 @@ fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
  * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
-fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
+fun angleInRadian(deg: Int, min: Int, sec: Int): Double {
+    val degreeInRadian = deg *(PI/180)
+    val minutesInRadian = min * (PI/(180*60))
+    val secondsInRadian = sec * (PI/(180*3600))
+    return (degreeInRadian + minutesInRadian + secondsInRadian)
+}
 
 /**
  * Тривиальная
@@ -90,7 +114,10 @@ fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
  * Найти длину отрезка, соединяющего точки на плоскости с координатами (x1, y1) и (x2, y2).
  * Например, расстояние между (3, 0) и (0, 4) равно 5
  */
-fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = TODO()
+fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double {
+    val distance = sqr(x1 - x2) + sqr(y1 - y2)
+    return sqrt(distance)
+}
 
 /**
  * Простая
@@ -98,7 +125,14 @@ fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = TODO()
  * Пользователь задает целое число, большее 100 (например, 3801).
  * Определить третью цифру справа в этом числе (в данном случае 8).
  */
-fun thirdDigit(number: Int): Int = TODO()
+fun thirdDigit(number: Int): Int {
+    /*val toStr = number.toString()
+    val StrLen = toStr.length
+    val thirdNumber = toStr[StrLen - 3]
+    return thirdNumber.toString().toInt()*/
+    val restDivision = number%10
+    return (restDivision)
+}
 
 /**
  * Простая
@@ -107,7 +141,11 @@ fun thirdDigit(number: Int): Int = TODO()
  * прибыл на станцию назначения в h2 часов m2 минут того же дня (например в 13:01).
  * Определите время поезда в пути в минутах (в данном случае 216).
  */
-fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minutesArrive: Int): Int = TODO()
+fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minutesArrive: Int): Int {
+    val arriveInMinutes = hoursArrive * 60 + minutesArrive
+    val departInMinutes = hoursDepart * 60 + minutesDepart
+    return (arriveInMinutes - departInMinutes)
+}
 
 /**
  * Простая
